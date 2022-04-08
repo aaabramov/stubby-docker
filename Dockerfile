@@ -1,10 +1,8 @@
-FROM node:alpine
-
-RUN apk --no-cache add curl && \
-	npm install -g stubby && \
-	echo "Installed stubby version $(stubby -v)"
+FROM node:16-alpine
 
 COPY ["scripts/*", "/scripts/"]
+
+RUN npm install -g stubby@5.1.0
 
 WORKDIR /scripts
 
